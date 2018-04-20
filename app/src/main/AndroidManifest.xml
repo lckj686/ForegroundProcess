@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.demo.mydemo">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+    <application
+        android:name=".CustApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.main" />
+            </intent-filter>
+        </activity>
+
+
+        <service
+            android:name="com.demo.mydemo.ForegroundService"
+            android:process=":live" />
+
+
+        <receiver android:name=".BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".AlarmReceiver">
+
+            <intent-filter>
+                <action android:name="arui.alarm.action" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.demo.mydemo.PixelActivity"
+            android:excludeFromRecents="true"
+
+            android:exported="false"
+            android:finishOnTaskLaunch="false"
+            android:launchMode="singleTask"
+            android:process=":live"
+            android:taskAffinity="com.demo.mydemo.PixelActivity" />
+
+    </application>
+
+</manifest>

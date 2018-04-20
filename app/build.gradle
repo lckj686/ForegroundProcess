@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+//加载keystore.properties文件中的信息
+def keystoreFile = rootProject.file("app/keystore.properties")
+def properties = new Properties();
+properties.load(new FileInputStream(keystoreFile))
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.demo.mydemo2"
+        minSdkVersion 18
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        config {
+            keyAlias properties['KEY_ALIAS']
+            keyPassword properties['KEY_PASSWORD']
+            storeFile file(properties['KEYSTORE_FILE'])
+            storePassword properties['STORE_PASSWORD']
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.config
+        }
+    }
+
+
+
+
+    flavorDimensions  "environment"   //根据【发布渠道】和【运行环境】分类
+    productFlavors {
+
+        //----环境---//
+        demo3 { //
+            dimension "environment"
+            applicationId "com.demo.mydemo3"
+        }
+
+
+
+        demo4 {  //
+            dimension "environment"
+            applicationId "com.demo.mydemo4"
+        }
+
+        demo5 {  //
+            dimension "environment"
+            applicationId "com.demo.mydemo5"
+        }
+    }
+
+    //自定义生成的apk的名称
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "" + "_${variant.name}_v${variant.versionName}_c${variant.versionCode}_${variant.buildType.name}.apk"
+
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation project(':lib_comm_utils')
+
+    compile 'org.greenrobot:eventbus:3.1.1'
+}
+
+
