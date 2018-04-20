@@ -1,4 +1,4 @@
-package com.demo.mydemo
+package com.leon.tool
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.demo.mydemo;
+package com.leon.tool;
 
 import android.app.Notification;
 import android.app.Service;
@@ -11,7 +11,7 @@ import android.os.IBinder;
 
 
 import com.blue.frame.utils.log4j.LoggerUtil;
-import com.demo.mydemo.utils.TileUtils;
+import com.leon.tool.utils.TileUtils;
 
 /**
  * Created by leon on 2018/4/15.

@@ -1,4 +1,4 @@
-package com.demo.mydemo;
+package com.leon.tool;
 
 /**
  * Created by leon on 2018/4/15.
@@ -11,7 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.blue.frame.utils.log4j.LoggerUtil;
-import com.demo.mydemo.utils.TileUtils;
+import com.leon.tool.utils.TileUtils;
 
 /**
  * Created by dml on 2018/3/3.

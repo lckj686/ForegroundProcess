@@ -1,10 +1,10 @@
-package com.demo.mydemo;
+package com.leon.tool;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.blue.frame.utils.log4j.LoggerUtil;
-import com.demo.mydemo.utils.AppUtils;
+import com.leon.tool.utils.AppUtils;
 
 import org.greenrobot.eventbus.EventBus;
 

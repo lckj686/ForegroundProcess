@@ -1,4 +1,4 @@
-package com.demo.mydemo
+package com.leon.tool
 
 import android.app.Notification
 import android.app.NotificationManager
@@ -8,7 +8,7 @@ import android.content.Context.NOTIFICATION_SERVICE
 import android.content.Intent
 import android.os.Build
 import com.blue.frame.utils.log4j.LoggerUtil
-import com.demo.mydemo.utils.TileUtils
+import com.leon.tool.utils.TileUtils
 
 /**
  * 通知管理类

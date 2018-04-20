@@ -1,4 +1,4 @@
-package com.demo.mydemo.utils;
+package com.leon.tool.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.demo.mydemo">
+    package="com.leon.tool">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
     <application
-        android:name=".CustApplication"
+        android:name="com.leon.tool.CustApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.leon.tool.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,16 +26,16 @@
 
 
         <service
-            android:name="com.demo.mydemo.ForegroundService"
+            android:name="com.leon.tool.ForegroundService"
             android:process=":live" />
 
 
-        <receiver android:name=".BootReceiver">
+        <receiver android:name="com.leon.tool.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".AlarmReceiver">
+        <receiver android:name="com.leon.tool.AlarmReceiver">
 
             <intent-filter>
                 <action android:name="arui.alarm.action" />
@@ -43,7 +43,7 @@
         </receiver>
 
         <activity
-            android:name="com.demo.mydemo.PixelActivity"
+            android:name="com.leon.tool.PixelActivity"
             android:excludeFromRecents="true"
 
             android:exported="false"
